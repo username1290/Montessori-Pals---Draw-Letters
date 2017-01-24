@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>DrawLetters</name>
+    <events>
+        <include>CODESHEET</include>
+        <variable comment="Counts how many sprites will be needed to be passed over" constant="0" name="varDrawLetterHowManySpritesCOUNTER" sid="1664508356449483" static="0" type="number">-1</variable>
+        <variable comment="The counter that will be compared to varHowDrawLetterCounter, Why? When they are equal it activates End Game group" constant="0" name="varDrawLetterSubstractTillZeroCOUNTER" sid="2000844086377632" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyItemsOfLetterAreVisible" sid="1081956658633247" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyDrawLettersAreInserted" sid="651526112142994" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyDrawLetterSpritesAreSUM" sid="8008302351741747" static="0" type="number">0</variable>
+        <variable constant="0" name="colorDraw" sid="2683039988989439" static="0" type="text">yellow</variable>
+        <comment>unused --- Using Tile Generator, first it needs to: 1.- Choose (ArrayActivityDrawLetterAllBlockPositions.At()) 2.- Use it in an loop to create</comment>
+        <event-block sid="7807541145274177">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="55864101202482" type="System" />
+            </conditions>
+            <actions>
+                <action id="2" name="Stop" sid="4644499238064327" type="SpriteDrawLetters1" />
+                <action id="2" name="Stop" sid="6077847694850125" type="SpriteDrawLetters2" />
+                <action id="2" name="Stop" sid="2662593071496361" type="SpriteDrawLetters3" />
+                <action id="2" name="Stop" sid="6799247131982581" type="SpriteAll512Letters" />
+                <action id="-9" name="Destroy" sid="8772985704992186" type="DrawLetterActSpriteAllPassedOK" />
+                <action id="-9" name="Set value" sid="6900809144242137" type="System">
+                    <param id="0" name="Variable">varDrawLetterHowManySpritesCOUNTER</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="3721343992824749" type="System">
+                    <param id="0" name="Variable">varDrawLetterSubstractTillZeroCOUNTER</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1066925916737543" type="System">
+                    <param id="0" name="Variable">varHowManyItemsOfLetterAreVisible</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="396962761430251" type="System">
+                    <param id="0" name="Variable">varHowManyDrawLetterSpritesAreSUM</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="2447301356648215" type="System">
+                    <param id="0" name="Variable">varHowManyDrawLettersAreInserted</param>
+                    <param id="1" name="Value">(floor(random(63)))</param>
+                </action>
+                <action id="5" name="Set frame" sid="868107511340236" type="SpriteAll512Letters">
+                    <param id="0" name="Frame number">varHowManyDrawLettersAreInserted</param>
+                </action>
+                <action id="21" name="Paste Layer" sid="9787700851762124" type="CanvasDrawLetterAct">
+                    <param id="0" name="Layer">&quot;letterLayer&quot;</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="7264797128223705" type="System">
+                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="1892211763565139" type="System">
+                    <param id="0" name="Variable">colorDraw</param>
+                    <param id="1" name="Value">choose(&quot;white&quot;,&quot;yellow&quot;,&quot;green&quot;,&quot;red&quot;,&quot;teal&quot;,&quot;aqua&quot;,&quot;pink&quot;,&quot;orange&quot;,&quot;violet&quot;)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="3990549398023221">
+                    <conditions>
+                        <condition id="-18" name="Is in preview" sid="7374313563961215" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="348975084294513" type="txtDrawLetterCounter">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4066104162887456" type="txtDrawLetterCounterCompare">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7661163618786064">
+                    <conditions>
+                        <condition id="-16" inverted="1" name="Is on layer" sid="8452224985278566" type="SpriteDrawLetters1">
+                            <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6683968380462498" type="SpriteDrawLetters1" />
+                    </actions>
+                </event-block>
+                <event-block sid="9298422280247654">
+                    <conditions>
+                        <condition id="-16" inverted="1" name="Is on layer" sid="1841078952429394" type="SpriteDrawLetters2">
+                            <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7598274556081599" type="SpriteDrawLetters2" />
+                    </actions>
+                </event-block>
+                <event-block sid="6885815411946872">
+                    <conditions>
+                        <condition id="-16" inverted="1" name="Is on layer" sid="2633673703895501" type="SpriteDrawLetters3">
+                            <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4966516386048393" type="SpriteDrawLetters3" />
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="3139489400727184">
+                    <conditions>
+                        <condition id="-9" inverted="1" name="Layer is visible" sid="4192275436655925" type="System">
+                            <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="8454551263628047">
+                    <conditions />
+                    <actions>
+                        <action id="-10" name="Set value" sid="7436054000292904" type="SpriteDrawLetters1">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;InitialState&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6171825281601893" type="SpriteDrawLetters2">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;InitialState&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="8093593269509662" type="SpriteDrawLetters3">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;InitialState&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2365401378809679">
+                    <conditions />
+                    <actions>
+                        <action id="-12" name="Set group active" sid="1372541358276028" type="System">
+                            <param id="0" name="Group name">&quot;CreateDrawSprites&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5675423925016667">
+                    <conditions />
+                    <actions>
+                        <action id="4" name="Preload" sid="4416205924310108" type="Audio">
+                            <param id="0" name="Audio file">chalk-richymel</param>
+                        </action>
+                        <action id="0" name="Play" sid="4127991561068966" type="Audio">
+                            <param id="0" name="Audio file">chalk-richymel</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4716375731773034">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6367944332102305" type="System" />
+                <condition id="-18" name="Is in preview" sid="6979287558688647" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="9733806904072439" type="txtDrawLetterCounter">
+                    <param id="0" name="Text">varDrawLetterHowManySpritesCOUNTER</param>
+                </action>
+                <action id="0" name="Set text" sid="6138570629788491" type="txtDrawLetterCounterCompare">
+                    <param id="0" name="Text">varDrawLetterSubstractTillZeroCOUNTER</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="1144635901038855" title="CanvasDrawLetterGroup">
+            <sub-events>
+                <event-block sid="3712225651389295">
+                    <conditions />
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7990314499973884">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="5250159080216384" type="Touch">
+                                    <param id="0" name="Object">CanvasDrawLetterAct</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Begin Path" sid="2804124923208448" type="CanvasDrawLetterAct" />
+                                <action id="0" name="Play" sid="5875132203526164" type="Audio">
+                                    <param id="0" name="Audio file">chalk-richymel</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2101602048966651">
+                            <conditions>
+                                <condition id="4" name="Is touching object" sid="8675145601565534" type="Touch">
+                                    <param id="0" name="Object">CanvasDrawLetterAct</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="10" name="Draw Path" sid="7373271633995476" type="CanvasDrawLetterAct">
+                                    <param id="0" name="color">colorDraw</param>
+                                    <param id="1" name="line_width">50</param>
+                                </action>
+                                <action id="13" name="Line To" sid="3980933020668448" type="CanvasDrawLetterAct">
+                                    <param id="0" name="x">Touch.X-CanvasDrawLetterAct.X</param>
+                                    <param id="1" name="y">Touch.Y-CanvasDrawLetterAct.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1193941981782432">
+                            <conditions>
+                                <condition id="4" name="Is touching object" sid="1317873552817519" type="Touch">
+                                    <param id="0" name="Object">SpriteDrawLetters1</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="4980054189183665" type="SpriteDrawLetters1">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="1149440306046703" type="SpriteDrawLetters1">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Destroyed&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4165974295167715">
+                            <conditions>
+                                <condition id="4" name="Is touching object" sid="92871582817726" type="Touch">
+                                    <param id="0" name="Object">SpriteDrawLetters2</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="8546402136634007" type="SpriteDrawLetters2">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="6725323691678692" type="SpriteDrawLetters2">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Destroyed&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3778343938249103">
+                            <conditions>
+                                <condition id="4" name="Is touching object" sid="3959620705609954" type="Touch">
+                                    <param id="0" name="Object">SpriteDrawLetters3</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="3601453329748366" type="SpriteDrawLetters3">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="3676660654985279" type="SpriteDrawLetters3">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Destroyed&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>END GAME CHECK ===== Check if all Sprites have been passed over (drawn), and then activate Group</comment>
+        <event-block sid="7098292060409293">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7710541287339598" type="System">
+                    <param id="0" name="Variable">varDrawLetterHowManySpritesCOUNTER</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">varDrawLetterSubstractTillZeroCOUNTER</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="2615065736657475" type="Function">
+                    <param id="0" name="Name">&quot;functionCheckIfAllSpritesFormingTheLetterHaveBeenTouched&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="1244536896378895" title="CheckIfAllSpritesFormingTheLetterHaveBeenTouched">
+            <sub-events>
+                <event-block sid="6417244580897187">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7456527257566855" type="Function">
+                            <param id="0" name="Name">&quot;functionCheckIfAllSpritesFormingTheLetterHaveBeenTouched&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="6703565235708286" type="System">
+                            <param id="0" name="Object to create">DrawLetterActSpriteAllPassedOK</param>
+                            <param id="1" name="Layer">&quot;GUI&quot;</param>
+                            <param id="2" name="X">545</param>
+                            <param id="3" name="Y">377</param>
+                        </action>
+                        <action id="2" name="Stop" sid="5505202494888166" type="DrawLetterActSpriteAllPassedOK" />
+                        <action id="5" name="Set frame" sid="8215090180816381" type="DrawLetterActSpriteAllPassedOK">
+                            <param id="0" name="Frame number">choose(0, 1)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3032541669026483" type="System">
+                            <param id="0" name="Variable">varDrawLetterHowManySpritesCOUNTER</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="9394250570937811" type="Function">
+                            <param id="0" name="Name">&quot;functionEndGameAndContinuePlaying&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="-16" name="Wait" sid="561747920073661" type="System">
+                            <param id="0" name="Seconds">60 * dt</param>
+                        </action>
+                        <action disabled="1" id="-12" name="Set group active" sid="1034781094111173" type="System">
+                            <param id="0" name="Group name">&quot;CanvasDrawLetterGroup&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="8426507711997632">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="6929171418950443" type="SpriteDrawLetters1">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Destroyed&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="1738348458314265" type="SpriteDrawLetters1" />
+                <action id="-10" name="Add to" sid="7513530016077567" type="System">
+                    <param id="0" name="Variable">varDrawLetterSubstractTillZeroCOUNTER</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3241345887622229">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="6105714786516408" type="SpriteDrawLetters2">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Destroyed&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="7953648575071664" type="SpriteDrawLetters2" />
+                <action id="-10" name="Add to" sid="7806472312055294" type="System">
+                    <param id="0" name="Variable">varDrawLetterSubstractTillZeroCOUNTER</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6925823959677984">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="5855393072947882" type="SpriteDrawLetters3">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Destroyed&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="6256077066488212" type="SpriteDrawLetters3" />
+                <action id="-10" name="Add to" sid="9386369213071125" type="System">
+                    <param id="0" name="Variable">varDrawLetterSubstractTillZeroCOUNTER</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="4156190030162164" title="CreateDrawSprites">
+            <sub-events>
+                <variable comment="Internal counting of how many Sprites are, Why? needed to know how many Sprites need to be passed over. Will pass the value to Counter" constant="0" name="localCounter" sid="1462253114818781" static="0" type="number">0</variable>
+                <event-block sid="2083314099066995">
+                    <conditions>
+                        <condition disabled="1" id="0" name="On function" sid="8651513407310336" type="Function">
+                            <param id="0" name="Name">&quot;functionCreateDrawSprites&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9128792174996093">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="7673192830709001" type="SpriteDrawLetters1" />
+                                <condition id="-11" name="For Each" sid="8754548726831506" type="System">
+                                    <param id="0" name="Object">SpriteDrawLetters1</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="530388602858941" type="SpriteDrawLetters1">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="9679543989806228" type="System">
+                                    <param id="0" name="Variable">localCounter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4363199817774727">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="3022118187789136" type="SpriteDrawLetters2" />
+                                <condition id="-11" name="For Each" sid="2187376039705167" type="System">
+                                    <param id="0" name="Object">SpriteDrawLetters2</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="100038934214875" type="SpriteDrawLetters2">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="4457856476660155" type="System">
+                                    <param id="0" name="Variable">localCounter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8634467578190165">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="1192112694187306" type="SpriteDrawLetters3" />
+                                <condition id="-11" name="For Each" sid="6792667338321287" type="System">
+                                    <param id="0" name="Object">SpriteDrawLetters3</param>
+                                </condition>
+                                <condition id="-16" name="Is on layer" sid="1764094484618125" type="SpriteDrawLetters3">
+                                    <param id="0" name="Layer">varHowManyDrawLettersAreInserted+2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="7718219781334702" type="System">
+                                    <param id="0" name="Variable">localCounter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5241954199183748">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="7863068998205029" type="System">
+                            <param id="0" name="Variable">varDrawLetterHowManySpritesCOUNTER</param>
+                            <param id="1" name="Value">localCounter</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5465145508562335">
+                    <conditions />
+                    <actions>
+                        <action id="-12" name="Set group active" sid="4362670925317461" type="System">
+                            <param id="0" name="Group name">&quot;CreateDrawSprites&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PathHome</name>
+    <events>
+        <include>CODESHEET</include>
+        <comment>Hovertext textbox is for debugging purposes, shows a number which corresponds to the random number generated at that particular spot. &#x0D;&#x0A;Why? Because that&apos;s the animation frame that will be shown</comment>
+        <event-block sid="4846034557181738">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="6583967756900846" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="5819288376603199" type="spriteActPathHomeOptions" />
+                <action id="0" name="Spawn another object" sid="6595916494311537" type="hole">
+                    <param id="0" name="Object">spriteActPathHomeOptions</param>
+                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action disabled="1" id="0" name="Spawn another object" sid="685210115153582" type="hole">
+                    <param id="0" name="Object">hovertext</param>
+                    <param id="1" name="Layer">&quot;Main&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="2" name="Stop" sid="7147588133128851" type="spriteActPathHomeOptions" />
+                <action id="2" name="Stop" sid="2555716018925686" type="spriteActPathHomeHint" />
+                <action id="-12" name="Set group active" sid="7733508148100433" type="System">
+                    <param id="0" name="Group name">choose(&quot;PathHome&quot;, &quot;PathPark&quot;, &quot;PathBeach&quot;)</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="2" name="Set at X" sid="283401472819623" type="ArrayNamesOfPlacesPathHome">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Value">&quot;Home&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="3913086535126844" type="ArrayNamesOfPlacesPathHome">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Value">&quot;Park&quot;</param>
+                </action>
+                <action id="2" name="Set at X" sid="1584297848283266" type="ArrayNamesOfPlacesPathHome">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Value">&quot;Beach&quot;</param>
+                </action>
+                <action id="2" name="Stop" sid="5335707335293415" type="spriteActPathHomeRoad1" />
+                <action id="2" name="Stop" sid="4175089196390553" type="spriteActPathHomeRoad2" />
+                <action id="2" name="Stop" sid="9477967872335974" type="spriteActPathHomeRoad3" />
+            </actions>
+            <sub-events>
+                <comment>Hovertext is a debug helper, shows in the textbox what frame(number) was chosen</comment>
+                <event-block sid="1844903007114109">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="6005318629189872" type="System">
+                            <param id="0" name="Count">1</param>
+                        </condition>
+                        <condition id="-10" name="For" sid="9059991244850915" type="System">
+                            <param id="0" name="Name">&quot;Holes&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4337660924453097">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="7415676567835503" type="hole">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-16" name="Pick random instance" sid="6425913474081121" type="System">
+                                    <param id="0" name="Object">hole</param>
+                                </condition>
+                                <condition id="-13" name="Pick nth instance" sid="9950623336680587" type="System">
+                                    <param id="0" name="Object">spriteActPathHomeOptions</param>
+                                    <param id="1" name="Instance">hole.IID</param>
+                                </condition>
+                                <condition disabled="1" id="-13" name="Pick nth instance" sid="2501248906849835" type="System">
+                                    <param id="0" name="Object">hovertext</param>
+                                    <param id="1" name="Instance">hole.IID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="8163150553748457" type="hole">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Value">loopindex</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="4890560737666419" type="spriteActPathHomeOptions">
+                                    <param id="0" name="Frame number">(hole.ID)-1</param>
+                                </action>
+                                <action disabled="1" id="0" name="Set text" sid="6205423701174929" type="hovertext">
+                                    <param id="0" name="Text">(hole.ID)-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="Animation Frame is: 0" inactive="1" sid="8537209986062609" title="PathHome">
+            <sub-events>
+                <variable constant="0" name="animationText" sid="4288084097719087" static="0" type="text">Select the house</variable>
+                <variable constant="0" name="animationFrame" sid="574358628426268" static="0" type="number">0</variable>
+                <comment>Moved spriteAct (KID) to TriggerOnce, out of &quot;on touched&quot;</comment>
+                <event-block sid="9991417206111244">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="1023638569912397" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="1368399462871682" type="spriteActPathHomeHint">
+                            <param id="0" name="Frame number">animationFrame</param>
+                        </action>
+                        <action id="-24" name="Move to top" sid="7065769499301876" type="spriteActPathHomeKid" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6830528233029588">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="256844357946518" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Instance variable">WhatTextAmIFor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Path Home Text&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="5060134159949001" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Text">animationText</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2425382132970204">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="8515015217728292" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeOptions</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="181444995315927">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="8174562643807757" type="spriteActPathHomeOptions">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">animationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="6" name="Move to object" sid="9571306812347988" type="spriteActPathHomeKid">
+                                    <param id="0" name="Target">spriteActPathHomeOptions</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="5286148223386486">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="7061063890251839" type="spriteActPathHomeOptions">
+                                            <param id="0" name="Object">familyPathHomeRoads</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="4877118151706611" type="Function">
+                                            <param id="0" name="Name">&quot;functionIlluminateTheRoadToPathHome&quot;</param>
+                                            <param id="1" name="Parameter {n}">familyPathHomeRoads.ID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1985733728143261">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="4282187255736485" type="System">
+                                            <param id="0" name="Seconds">90 * dt</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="3372108181857843" type="Function">
+                                            <param id="0" name="Name">&quot;functionEndGameAndContinuePlaying&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="7117004575343274">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3758783789084584" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="FadeFamilyMainActItems" id="1" name="Start fade" sid="4949748834821686" type="spriteActPathHomeOptions" />
+                                <action id="-16" name="Wait" sid="8111278844561048" type="System">
+                                    <param id="0" name="Seconds">60 * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Animation Frame is: 1" inactive="1" sid="3788720998309303" title="PathPark">
+            <sub-events>
+                <variable constant="0" name="animationText" sid="499610272026527" static="0" type="text">Select the Park</variable>
+                <variable constant="0" name="animationFrame" sid="3788290815181943" static="0" type="number">1</variable>
+                <event-block sid="5910226126575906">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="3681919675870601" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="7165913966740861" type="spriteActPathHomeHint">
+                            <param id="0" name="Frame number">animationFrame</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6447079753257771">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="9992584291843508" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Instance variable">WhatTextAmIFor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Path Home Text&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="1794258424442024" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Text">animationText</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7710260007505275">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="6127830544753704" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeOptions</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Correct</comment>
+                        <event-block sid="3428620607930929">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="6134381665521108" type="spriteActPathHomeOptions">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">animationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-24" name="Move to top" sid="2702296321376986" type="spriteActPathHomeKid" />
+                                <action behavior="MoveTo" id="6" name="Move to object" sid="6685247114265398" type="spriteActPathHomeKid">
+                                    <param id="0" name="Target">spriteActPathHomeOptions</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="3782251259727904">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="8839641141742462" type="spriteActPathHomeOptions">
+                                            <param id="0" name="Object">familyPathHomeRoads</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="1945314146968472" type="Function">
+                                            <param id="0" name="Name">&quot;functionIlluminateTheRoadToPathHome&quot;</param>
+                                            <param id="1" name="Parameter {n}">familyPathHomeRoads.ID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6568678767026773">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="1877158916687478" type="System">
+                                            <param id="0" name="Seconds">90 * dt</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="5181865680820199" type="Function">
+                                            <param id="0" name="Name">&quot;functionEndGameAndContinuePlaying&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Incorrect</comment>
+                        <event-block sid="5146915725215808">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7863605567440652" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="FadeFamilyMainActItems" id="1" name="Start fade" sid="4200660386050857" type="spriteActPathHomeOptions" />
+                                <action id="-16" name="Wait" sid="4517821440181853" type="System">
+                                    <param id="0" name="Seconds">60 * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="Animation Frame is: 2" inactive="1" sid="3938861489851731" title="PathBeach">
+            <sub-events>
+                <variable constant="0" name="animationText" sid="3355848054539264" static="0" type="text">Select the Beach</variable>
+                <variable constant="0" name="animationFrame" sid="6135109223635682" static="0" type="number">2</variable>
+                <event-block sid="802198070202198">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="4975074299303258" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="2760696297074413" type="spriteActPathHomeHint">
+                            <param id="0" name="Frame number">animationFrame</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6673875974867364">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="6653021098640733" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Instance variable">WhatTextAmIFor</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Path Home Text&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="1744128130191025" type="SpriteFont_GrilledCheeseBTNToasted_24_Left638_41x46">
+                                    <param id="0" name="Text">animationText</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9551891838603088">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1223398080737705" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeOptions</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Correct</comment>
+                        <event-block sid="6517645381590516">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="2243729006945888" type="spriteActPathHomeOptions">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">animationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-24" name="Move to top" sid="2988534417074285" type="spriteActPathHomeKid" />
+                                <action behavior="MoveTo" id="6" name="Move to object" sid="8806018421030652" type="spriteActPathHomeKid">
+                                    <param id="0" name="Target">spriteActPathHomeOptions</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="4310318750458728">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="8733198147109492" type="spriteActPathHomeOptions">
+                                            <param id="0" name="Object">familyPathHomeRoads</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7494230288896477" type="Function">
+                                            <param id="0" name="Name">&quot;functionIlluminateTheRoadToPathHome&quot;</param>
+                                            <param id="1" name="Parameter {n}">familyPathHomeRoads.ID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1742885089194663">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="5658491996112312" type="System">
+                                            <param id="0" name="Seconds">90 * dt</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="6167524187230131" type="Function">
+                                            <param id="0" name="Name">&quot;functionEndGameAndContinuePlaying&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Incorrect</comment>
+                        <event-block sid="7746883480491399">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7868923108788363" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="FadeFamilyMainActItems" id="1" name="Start fade" sid="8853386841093536" type="spriteActPathHomeOptions" />
+                                <action id="-16" name="Wait" sid="1799919821861415" type="System">
+                                    <param id="0" name="Seconds">60 * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8890987903476803" title="Group Illuminate the Road Function">
+            <sub-events>
+                <event-block sid="2277112846846811">
+                    <conditions>
+                        <condition id="0" name="On function" sid="1057114696895749" type="Function">
+                            <param id="0" name="Name">&quot;functionIlluminateTheRoadToPathHome&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="541195358688757">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="2693282606552067" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="9886676128119591" type="spriteActPathHomeRoad1">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7472402419894296">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="2182256232434059" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="4034657366837391" type="spriteActPathHomeRoad2">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="457373886730308">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4829309528996399" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="1915350298862813" type="spriteActPathHomeRoad3">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8920832741462234" title="Group create Text over SpritePathHomeOptions on click">
+            <sub-events>
+                <comment>Object Name on object X, Y+20</comment>
+                <event-block sid="9363087103577169">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="9700373936153225" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeOptions</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="9228990846334918" type="spriteActPathHomeOptions" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1947422494289989" type="Function">
+                            <param id="0" name="Name">&quot;functionCreateNameOverObjectCoordinatesWhenClicked&quot;</param>
+                            <param id="1" name="Parameter {n}">spriteActPathHomeOptions.X{###}spriteActPathHomeOptions.Y{###}ArrayNamesOfPlacesPathHome.At(spriteActPathHomeOptions.AnimationFrame){###}spriteActPathHomeOptions.UID</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-group description="this should work for debugging." inactive="1" sid="4550736510465385" title="debug">
+                            <sub-events>
+                                <event-block sid="8522062859123402">
+                                    <conditions />
+                                    <actions>
+                                        <action disabled="1" id="-9" name="Destroy" sid="3842650847738519" type="debug" />
+                                        <action disabled="1" id="0" name="Call function" sid="1838664324716429" type="Function">
+                                            <param id="0" name="Name">&quot;functionCreateNameOverObjectCoordinatesWhenClicked&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action disabled="1" id="0" name="Spawn another object" sid="1720545245471121" type="spriteActPathHomeOptions">
+                                            <param id="0" name="Object">debug</param>
+                                            <param id="1" name="Layer">&quot;GUI&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action disabled="1" id="-1" name="Set X" sid="9485834634687576" type="debug">
+                                            <param id="0" name="X">spriteActPathHomeOptions.X</param>
+                                        </action>
+                                        <action disabled="1" id="-2" name="Set Y" sid="5132066086679888" type="debug">
+                                            <param id="0" name="Y">spriteActPathHomeOptions.Y+20</param>
+                                        </action>
+                                        <action disabled="1" id="0" name="Set text" sid="3578823198788281" type="debug">
+                                            <param id="0" name="Text">ArrayNamesOfPlacesPathHome.At(spriteActPathHomeOptions.AnimationFrame)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1250712375470433" title="Group create Text over SpritePathHomeHint on click">
+            <sub-events>
+                <comment>Object Name on object X, Y+20</comment>
+                <event-block sid="9363087103577169">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="3042619430249713" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeHint</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1947422494289989" type="Function">
+                            <param id="0" name="Name">&quot;functionCreateNameOverObjectCoordinatesWhenClicked&quot;</param>
+                            <param id="1" name="Parameter {n}">spriteActPathHomeHint.X{###}spriteActPathHomeHint.Y{###}ArrayNamesOfPlacesPathHome.At(spriteActPathHomeHint.AnimationFrame){###}spriteActPathHomeHint.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5584794936074819" title="Group Create Particle over object clicked">
+            <sub-events>
+                <comment>Particles on object X, Y</comment>
+                <event-block sid="3053920423018449">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="59334584983098" type="Touch">
+                            <param id="0" name="Object">spriteActPathHomeOptions</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="4828829238843961" type="spriteActPathHomeOptions" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1810972026714387" type="System">
+                            <param id="0" name="Variable">ParticleX</param>
+                            <param id="1" name="Value">spriteActPathHomeOptions.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9381995540729355" type="System">
+                            <param id="0" name="Variable">ParticleY</param>
+                            <param id="1" name="Value">spriteActPathHomeOptions.Y</param>
+                        </action>
+                        <action id="0" name="Call function" sid="7108301262931756" type="Function">
+                            <param id="0" name="Name">&quot;functionCreateParticlesOnObjectCoordinatesWhenClicked&quot;</param>
+                            <param id="1" name="Parameter {n}">ParticleX{###}ParticleY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

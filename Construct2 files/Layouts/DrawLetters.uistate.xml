@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the layout was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <camera>
+        <position-x>512</position-x>
+        <position-y>374</position-y>
+        <position-z>305.177</position-z>
+        <lookat-x>512</lookat-x>
+        <lookat-y>374</lookat-y>
+        <lookat-z>0</lookat-z>
+    </camera>
+    <snap-to-grid>0</snap-to-grid>
+    <show-grid>0</show-grid>
+    <snap-width>32</snap-width>
+    <snap-height>32</snap-height>
+    <show-collision-polys>0</show-collision-polys>
+    <translucent-inactive-layers>0</translucent-inactive-layers>
+    <properties>
+        <property expanded="1" name="Layout properties" />
+        <property expanded="0" name="Layout Size" />
+        <property expanded="0" name="Margins" />
+        <property expanded="1" name="Effects" />
+    </properties>
+    <active-layer name="background" />
+    <layers>
+        <layer locked="0" name="background" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="letterLayer" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_a" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_b" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_c" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_d" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_e" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_f" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_g" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_h" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_i" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_j" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_k" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_l" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_m" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_n" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_o" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_p" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_q" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_r" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_s" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_t" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_u" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_v" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_w" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_x" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_y" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_z" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Au" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Bu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Cu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Du" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Eu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Fu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Gu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Hu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Iu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Ju" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Ku" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Lu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Mu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Nu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Ou" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Pu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Qu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Ru" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Su" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Tu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Uu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Vu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Wu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Xu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Yu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_Zu" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_0" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_1" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_2" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_3" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_4" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_5" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_6" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_7" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_8" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_9" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_exclamation" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_question" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_comma" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_period" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_dollar" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_hyphen" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_plussign" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="Layer_twoperiods" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="canvas" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="GUI" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="DEV" parallax-in-editor="0" visible="0" />
+    </layers>
+</c2uistate>

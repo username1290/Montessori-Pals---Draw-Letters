@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Drag3Face</name>
+    <events>
+        <variable constant="0" name="varHowManyMatches" sid="7033548308699329" static="0" type="number">0</variable>
+        <variable constant="0" name="varIsMatchingArea1" sid="3512205084454286" static="0" type="number">0</variable>
+        <variable constant="0" name="varIsMatchingArea2" sid="1411866514071491" static="0" type="number">0</variable>
+        <variable constant="0" name="varIsMatchingArea3" sid="508339851457458" static="0" type="number">0</variable>
+        <variable constant="0" name="varTurnOnCalculateHowManyCorrectMatches" sid="775392776760284" static="0" type="text"></variable>
+        <variable constant="0" name="varTries" sid="2518195124089044" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyItemsOnArea1" sid="5086965224269452" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyItemsOnArea2" sid="9589767634934812" static="0" type="number">0</variable>
+        <variable constant="0" name="varHowManyItemsOnArea3" sid="4942128759697985" static="0" type="number">0</variable>
+        <comment>ACTIVATES the event if it is EQUAL to 1</comment>
+        <comment>When the layout starts reset the global variables to their defaults, save off the positions of the draggable text objects in their own instance variables and position the game over layer objects for use when the game is over.</comment>
+        <event-block sid="8889947416484743">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2154810931080068" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="-21" name="Reset global variables" sid="8600076696067336" type="System" />
+                <action id="-9" name="Set value" sid="5181854820790171" type="System">
+                    <param id="0" name="Variable">varHowManyMatches</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9781448019305374" type="System">
+                    <param id="0" name="Variable">varIsMatchingArea1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="3794217911620339" type="System">
+                    <param id="0" name="Variable">varIsMatchingArea2</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="4548666316475621" type="System">
+                    <param id="0" name="Variable">varIsMatchingArea3</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="3264847929409815" type="System">
+                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="5782030031677561" type="System">
+                    <param id="0" name="Variable">varHowManyItemsOnArea1</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="2464071158857699" type="System">
+                    <param id="0" name="Variable">varHowManyItemsOnArea2</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="5892028230316848" type="System">
+                    <param id="0" name="Variable">varHowManyItemsOnArea3</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="8716263809045821">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="5028113153865871" type="System">
+                            <param id="0" name="Object">dragObject</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="7765080150362567" type="dragObject">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3966695380242222" type="dragObject">
+                            <param id="0" name="Instance variable">startX</param>
+                            <param id="1" name="Value">Self.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="9931268511909371" type="dragObject">
+                            <param id="0" name="Instance variable">startY</param>
+                            <param id="1" name="Value">Self.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5227318401083002" type="dragObject">
+                            <param id="0" name="Instance variable">initialWidth</param>
+                            <param id="1" name="Value">self.Width</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="483516806788427" type="dragObject">
+                            <param id="0" name="Instance variable">initialHeight</param>
+                            <param id="1" name="Value">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8027581207798928">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="3002526869197234" type="System">
+                            <param id="0" name="Object">dragObject2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="1844015079855716" type="dragObject2">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="2579713493339351" type="dragObject2">
+                            <param id="0" name="Instance variable">startX</param>
+                            <param id="1" name="Value">Self.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="3387603686868706" type="dragObject2">
+                            <param id="0" name="Instance variable">startY</param>
+                            <param id="1" name="Value">Self.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="4017163063190845" type="dragObject2">
+                            <param id="0" name="Instance variable">initialWidth</param>
+                            <param id="1" name="Value">self.Width</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="1913066207964207" type="dragObject2">
+                            <param id="0" name="Instance variable">initialHeight</param>
+                            <param id="1" name="Value">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5925713305928391">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="6240149460498394" type="System">
+                            <param id="0" name="Object">dragObject3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="5250499306107466" type="dragObject3">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="926494136131515" type="dragObject3">
+                            <param id="0" name="Instance variable">startX</param>
+                            <param id="1" name="Value">Self.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6392069982490499" type="dragObject3">
+                            <param id="0" name="Instance variable">startY</param>
+                            <param id="1" name="Value">Self.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5613930129333409" type="dragObject3">
+                            <param id="0" name="Instance variable">initialWidth</param>
+                            <param id="1" name="Value">self.Width</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="739839546392498" type="dragObject3">
+                            <param id="0" name="Instance variable">initialHeight</param>
+                            <param id="1" name="Value">self.Height</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6508463794237427">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="8849327891202533" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1793063771445037" type="txtMatches">
+                    <param id="0" name="Text">&quot;Matches: &quot; &amp; varHowManyMatches &amp; newline &amp; &quot;varIsMatchingArea1: &quot; &amp; varIsMatchingArea1 &amp; newline &amp; &quot;varIsMatchingArea2: &quot; &amp; varIsMatchingArea2 &amp; newline &amp; &quot;varIsMatchingArea3: &quot; &amp; varIsMatchingArea3</param>
+                </action>
+                <action id="0" name="Set text" sid="6228642562350738" type="debug">
+                    <param id="0" name="Text">&quot;ID &quot; &amp; dragObject.ID &amp; newline &amp; &quot;StartX, StartY: &quot; &amp; dragObject.startX &amp; &quot;, &quot; &amp; dragObject.startY &amp; newline &amp; &quot;Drag and drop: &quot; &amp; dragObject.IsOneComingBack &amp; newline &amp; &quot;how many on 1: &quot; &amp; varHowManyItemsOnArea1 &amp; newline &amp; &quot;IID: &quot; &amp; dragObject.IID</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="4450893062630954" type="debug2">
+                    <param id="0" name="Text">&quot;ID &quot; &amp; dragObject2.ID &amp; newline &amp; &quot;StartX, StartY: &quot; &amp; dragObject2.startX &amp; &quot;, &quot; &amp; dragObject2.startY &amp; newline &amp; &quot;Drag and drop: &quot; &amp; dragObject2.IsOneComingBack &amp; newline &amp; &quot;how many on 2: &quot; &amp; varHowManyItemsOnArea2 &amp; newline &amp; &quot;IID: &quot; &amp; dragObject2.IID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="156456478234058" title="Group Put Back on Starting (Initial) Position">
+            <sub-events>
+                <comment>WRONG: If the item is released anywhere and it&apos;s not correct, set its position back to starting position.</comment>
+                <comment>If the draggable text object has not been matched and is not overlapping an image object, repositon the draggable text object back to its starting location. If you would rather, you can destroy the object instead by switching which actions are disabled.</comment>
+                <event-block sid="1681650466093175">
+                    <conditions>
+                        <condition id="0" name="On function" sid="7376190831008261" type="Function">
+                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3775400687830611">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="4122175525724074" type="dragObject">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="234165270062511" type="dragObject">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="7470827008043476" type="dragObject">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                    <param id="1" name="Y">Function.Param(2)</param>
+                                </action>
+                                <action disabled="1" id="-3" name="Set position" sid="4546126569803417" type="dragObject">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                    <param id="1" name="Y">Function.Param(2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1546905538634438">
+                    <conditions>
+                        <condition id="0" name="On function" sid="3594759058470112" type="Function">
+                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3231213484926193">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="9783980156150511" type="dragObject2">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="3225595899216064" type="dragObject2">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="3025639553923925" type="dragObject2">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                    <param id="1" name="Y">Function.Param(2)</param>
+                                </action>
+                                <action disabled="1" id="-1" name="Set X" sid="2283291006803631" type="dragObject2">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                </action>
+                                <action disabled="1" id="-2" name="Set Y" sid="2009042777356159" type="dragObject2">
+                                    <param id="0" name="Y">Function.Param(2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6413315040361226">
+                    <conditions>
+                        <condition id="0" name="On function" sid="8311518553809215" type="Function">
+                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack3&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5123793443979685">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="8905889114910232" type="dragObject3">
+                                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="8343425768196619" type="dragObject3">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="MoveTo" id="4" name="Move to XY" sid="9008792126998111" type="dragObject3">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                    <param id="1" name="Y">Function.Param(2)</param>
+                                </action>
+                                <action disabled="1" id="-1" name="Set X" sid="3288623817407725" type="dragObject3">
+                                    <param id="0" name="X">Function.Param(1)</param>
+                                </action>
+                                <action disabled="1" id="-2" name="Set Y" sid="6292100054934072" type="dragObject3">
+                                    <param id="0" name="Y">Function.Param(2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="4400832042899747" title="Group Check Code and Add 1 to Tries">
+            <sub-events>
+                <comment>When a draggable object is dropped, it is considered a try, so increment Tries. Then check to see if the text was dropped on an image object.</comment>
+                <event-block sid="4313251067039085">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="4558561001518183" type="dragObject" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="2468682957110945" type="System">
+                            <param id="0" name="Variable">varTries</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="5196763613907179" type="txtTries">
+                            <param id="0" name="Text">&quot;Tries: &quot; &amp; varTries</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Next, check if the draggable object was dropped on an image object, check to see if the image object&apos;s description instance variable matches the draggable text object&apos;s text.</comment>
+                        <comment>CORRECT: If the description matches the text, position the draggable text object under the image object and disable drag for this object as well as set the draggable object&apos;s matched instance variable to true. Add to matches.</comment>
+                        <event-block sid="2874132187107433">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="1126638203883315" type="dragObject">
+                                    <param id="0" name="Object">dropArea1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="7667025093078577" type="dragObject">
+                                    <param id="0" name="Instance variable">Description</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">dropArea1.Description</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="9968267234305885" type="dragObject">
+                                    <param id="0" name="X">dropArea1.X</param>
+                                    <param id="1" name="Y">dropArea1.Y</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="6480428906098686" type="dragObject">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="2489207157290579" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea1</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="530678139478954" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Add&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="814505380984045" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea1</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3363942613262611">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2729472229920397" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="4770062297358931" type="Function">
+                                    <param id="0" name="Name">&quot;functionDragAndDropMoveBack&quot;</param>
+                                    <param id="1" name="Parameter {n}">dragObject.UID{###}dragObject.startX{###}dragObject.startY</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8079244727856132" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea1</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9068181137056119" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Subtract&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="859148229863422">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="451485033073061" type="dragObject2" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="6930520539071871" type="System">
+                            <param id="0" name="Variable">varTries</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9637497205295681" type="txtTries">
+                            <param id="0" name="Text">&quot;Tries: &quot; &amp; varTries</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Next, check if the draggable object was dropped on an image object, check to see if the image object&apos;s description instance variable matches the draggable text object&apos;s text.</comment>
+                        <comment>CORRECT: If the description matches the text, position the draggable text object under the image object and disable drag for this object as well as set the draggable object&apos;s matched instance variable to true. Add to matches.</comment>
+                        <event-block sid="3628899225167828">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="5156822611456397" type="dragObject2">
+                                    <param id="0" name="Object">dropArea2</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="306896571797442" type="dragObject2">
+                                    <param id="0" name="Instance variable">Description</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">dropArea2.Description</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="1783549614157769" type="dragObject2">
+                                    <param id="0" name="X">dropArea2.X</param>
+                                    <param id="1" name="Y">dropArea2.Y</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="4315242775228388" type="dragObject2">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="6413640795143635" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea2</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7419913547329893" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Add&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8158745599934439" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea2</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5262261437282805">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="8368054127210057" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="1643402463630461" type="Function">
+                                    <param id="0" name="Name">&quot;functionDragAndDropMoveBack2&quot;</param>
+                                    <param id="1" name="Parameter {n}">dragObject2.UID{###}dragObject2.startX{###}dragObject2.startY</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="1954654920249798" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea2</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9089778738411589" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Subtract&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3378655354067541">
+                    <conditions>
+                        <condition behavior="DragDrop" id="2" name="On drop" sid="5215447428803238" type="dragObject3" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="5857941932574916" type="System">
+                            <param id="0" name="Variable">varTries</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7723819318133036" type="txtTries">
+                            <param id="0" name="Text">&quot;Tries: &quot; &amp; varTries</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Next, check if the draggable object was dropped on an image object, check to see if the image object&apos;s description instance variable matches the draggable text object&apos;s text.</comment>
+                        <comment>CORRECT: If the description matches the text, position the draggable text object under the image object and disable drag for this object as well as set the draggable object&apos;s matched instance variable to true. Add to matches.</comment>
+                        <event-block sid="9100947641766218">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="3556417240591832" type="dragObject3">
+                                    <param id="0" name="Object">dropArea3</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="2446343803402132" type="dragObject3">
+                                    <param id="0" name="Instance variable">Description</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">dropArea3.Description</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="4755073687965107" type="dragObject3">
+                                    <param id="0" name="X">dropArea3.X</param>
+                                    <param id="1" name="Y">dropArea3.Y</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="7795334878167674" type="dragObject3">
+                                    <param id="0" name="Instance variable">IsOneComingBack</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="5304873342828929" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea3</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8117472765972705" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Add&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="926369513681066" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea3</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5499148450737689">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="1441846534382063" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5385894031619441" type="Function">
+                                    <param id="0" name="Name">&quot;functionDragAndDropMoveBack3&quot;</param>
+                                    <param id="1" name="Parameter {n}">dragObject3.UID{###}dragObject3.startX{###}dragObject3.startY</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5315835551599886" type="System">
+                                    <param id="0" name="Variable">varIsMatchingArea3</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8849585114452306" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">&quot;Subtract&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="561097855121046" title="Group Counter - get 3 to WIN">
+            <sub-events>
+                <comment>Add 1 to count (and we count 3 its WIN (game over))</comment>
+                <event-block sid="2469518294977786">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8410878162397284" type="System">
+                            <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Add&quot;</param>
+                        </condition>
+                        <condition id="-12" name="Repeat" sid="3265020010162541" type="System">
+                            <param id="0" name="Count">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="9056691434397915" type="System">
+                            <param id="0" name="Variable">varHowManyMatches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5243430672476894" type="System">
+                            <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                            <param id="1" name="Value">&quot;Off&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1219932537615469">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6049557976514071" type="System">
+                            <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Subtract&quot;</param>
+                        </condition>
+                        <condition id="-12" name="Repeat" sid="9028822285222257" type="System">
+                            <param id="0" name="Count">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="3100592725588755" type="System">
+                            <param id="0" name="Variable">varHowManyMatches</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4126706717605893" type="System">
+                            <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                            <param id="1" name="Value">&quot;Off&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8316514073307219" title="Group DragObject1 events">
+            <sub-events>
+                <event-block sid="3019474351392857">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Is touching object" sid="5216623636652531" type="Touch">
+                            <param id="0" name="Object">dragObject</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="5743327054321641" type="dragObject">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6167281052303007">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="9696038806003311" type="dragObject" />
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="6633447344932909" type="dragObject">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth*1.2,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight*1.2,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5308124671815322">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="6073720570352618" type="dragObject" />
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="1073905758515141" type="dragObject" />
+                        <action id="-13" name="Set boolean" sid="681121839879033" type="dragObject">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3690730241172578">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2096654526992424" type="System">
+                            <param id="0" name="Variable">varHowManyItemsOnArea1</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7774499108605426">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="2584957610690695" type="dragObject">
+                                    <param id="0" name="Object">dragObject</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6007847572311345">
+                                    <conditions>
+                                        <condition id="-17" name="Pick top/bottom" sid="5033174647642149" type="dragObject">
+                                            <param id="0" name="Which">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="7551435735991843" type="dragObject">
+                                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="9895259854350038" type="Function">
+                                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack&quot;</param>
+                                            <param id="1" name="Parameter {n}">dragObject.UID{###}dragObject.startX{###}dragObject.startY</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5983840592274459">
+                            <conditions />
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="3594404182391593" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea1</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="3069436431198302" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5180368999734056" title="Group DragObject2 Events">
+            <sub-events>
+                <event-block sid="6464206868826426">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Is touching object" sid="1149355836233236" type="Touch">
+                            <param id="0" name="Object">dragObject2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="9807209152650518" type="dragObject2">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2093712964983219">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="2664889388142831" type="dragObject2" />
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="3925207854469939" type="dragObject2">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth*1.2,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight*1.2,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2608278231394721">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="8446733072846933" type="dragObject2" />
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="4461061000960484" type="dragObject2" />
+                        <action id="-13" name="Set boolean" sid="9760922840037164" type="dragObject2">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5586927078521973">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1710195072057877" type="System">
+                            <param id="0" name="Variable">varHowManyItemsOnArea2</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2243262767726271">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="5514210638287377" type="dragObject2">
+                                    <param id="0" name="Object">dragObject2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7477487339105064">
+                                    <conditions>
+                                        <condition id="-17" name="Pick top/bottom" sid="156350272977467" type="dragObject2">
+                                            <param id="0" name="Which">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="748416996084349" type="dragObject2">
+                                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="6442256898644722" type="Function">
+                                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack2&quot;</param>
+                                            <param id="1" name="Parameter {n}">dragObject2.UID{###}dragObject2.startX{###}dragObject2.startY</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8078437185366155">
+                            <conditions />
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="5595808520891062" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea2</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="1712155144738349" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7620425349199308" title="Group DragObject3 Events">
+            <sub-events>
+                <event-block sid="5108367621969204">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Is touching object" sid="6190704136321737" type="Touch">
+                            <param id="0" name="Object">dragObject3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="9080794289870739" type="dragObject3">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6190648333079764">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="5464124871978593" type="dragObject3" />
+                    </conditions>
+                    <actions>
+                        <action id="-7" name="Set size" sid="6589001000252995" type="dragObject3">
+                            <param id="0" name="Width">lerp(Self.width,Self.initialWidth*1.2,dt*self.tweenSpeed)</param>
+                            <param id="1" name="Height">lerp(self.Height,self.initialHeight*1.2,dt*self.tweenSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6088574352802916">
+                    <conditions>
+                        <condition behavior="DragDrop" id="1" name="On drag start" sid="3082209980086158" type="dragObject3" />
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="7859441895711414" type="dragObject3" />
+                        <action id="-13" name="Set boolean" sid="5591526227298142" type="dragObject3">
+                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9059842568846838">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3067041258471631" type="System">
+                            <param id="0" name="Variable">varHowManyItemsOnArea3</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5282507722017421">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="1232163831691218" type="dragObject3">
+                                    <param id="0" name="Object">dragObject3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1618654478637921">
+                                    <conditions>
+                                        <condition id="-17" name="Pick top/bottom" sid="3985965415331383" type="dragObject3">
+                                            <param id="0" name="Which">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="8278633719950765" type="dragObject3">
+                                            <param id="0" name="Instance variable">IsOneComingBack</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="4774711419859313" type="Function">
+                                            <param id="0" name="Name">&quot;functionDragAndDropMoveBack3&quot;</param>
+                                            <param id="1" name="Parameter {n}">dragObject3.UID{###}dragObject3.startX{###}dragObject3.startY</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8632681405712222">
+                            <conditions />
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="3586136691391013" type="System">
+                                    <param id="0" name="Variable">varHowManyItemsOnArea3</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="2692853865272824" type="System">
+                                    <param id="0" name="Variable">varTurnOnCalculateHowManyCorrectMatches</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
